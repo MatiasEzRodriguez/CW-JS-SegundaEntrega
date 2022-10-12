@@ -1,4 +1,9 @@
-
+const cliente = {
+    nombre: prompt("ingrese su Nombre"),
+    apellido: prompt("ingrese su apellido"),
+    dni: prompt("ingrese su numero de dni"),
+    mail: prompt("ingrese su direccion de correo"),
+};
 let anio = prompt("Ingresa el año del vehiculo");
 let marca = prompt("ingresa la marca del vehiculo");
 let modelo = prompt("ingresa el modelo del vehiculo");
@@ -15,6 +20,7 @@ if (antiguedad > 10) {
 }
 
 let cotizacion;
+let cotizacion2;
 let cobertura;
 let ncobertura = prompt(
     "ingrese el tipo de cobertura que desea \n 1-Contra Terceros \n 2-Todo Riesgo"
@@ -30,8 +36,16 @@ switch (ncobertura) {
         console.log("opcion no valida");
         break;
 }
+const franquisia=[10,8,5,0];
+let montoFranquisia=[];
+function valfranquisia (val1, val2) {
+    return (val1 * val2) / 100;
+}
 function cotizar (num1, num2) {
     return num1 * num2;
+}
+function cotizar2 (num1, num2) {
+    return (num1 * num2) * 1.25;
 }
 if (ncobertura == 1) {
     cobertura = "Contra Terceros";
@@ -41,25 +55,45 @@ if (ncobertura == 1) {
         cotizacion = cotizar (valor, 0.008);
     }
 
+    console.log(cliente);
+    console.log("año: ",anio);
+    console.log("marca: ",marca);
+    console.log("modelo: ",modelo);
+    console.log("valor: ",valor);
+    console.log("cobertura: ",cobertura);
+    console.log("antigüedad: ",antiguedad);
+    console.log("La cotizacion mensual de la poliza es: ",cotizacion);
+
 }
 if (ncobertura == 2) {
     cobertura = "Contra Todo Riesgo";
     if (municipalizado == true) {
         cotizacion = cotizar (valor, 0.009);
+        cotizacion2 = cotizar2 (valor, 0.009);
+        montoFranquisia[0] = valfranquisia (valor, franquisia[0]);
+        montoFranquisia[1] = valfranquisia (valor, franquisia[1]);
     } else {
         cotizacion = cotizar (valor, 0.014);
+        cotizacion2 = cotizar2 (valor, 0.014);
+        montoFranquisia[0] = valfranquisia (valor, franquisia[2]);
+        montoFranquisia[1] = valfranquisia (valor, franquisia[3])
+        
     }
+
+    console.log(cliente);
+    console.log("año: ",anio);
+    console.log("marca: ",marca);
+    console.log("modelo: ",modelo);
+    console.log("valor: ",valor);
+    console.log("cobertura: ",cobertura);
+    console.log("antigüedad: ",antiguedad);
+    console.log("La cotizacion mensual de la poliza es: ",cotizacion);
+    console.log("Con franquisia de: ", montoFranquisia[0]);
+    console.log("O tambien: ", cotizacion2);
+    console.log("Con franquisia de: ", montoFranquisia[1]);
 }
 
 
-
-console.log("año: ",anio);
-console.log("marca: ",marca);
-console.log("modelo: ",modelo);
-console.log("valor: ",valor);
-console.log("cobertura: ",cobertura);
-console.log("antigüedad: ",antiguedad);
-console.log("La cotizacion mensual de la poliza es: ",cotizacion);
 
 
 
