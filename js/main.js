@@ -1,15 +1,9 @@
-let anio = prompt(
-    "Ingresa el año del vehiculo"
-);
-let marca = prompt(
-    "ingresa la marca del vehiculo"
-);
-let modelo = prompt(
-    "ingresa el modelo del vehiculo"
-);
-let valor = prompt(
-    "ingresa el valor de venta de tu vehiculo"
-);
+
+let anio = prompt("Ingresa el año del vehiculo");
+let marca = prompt("ingresa la marca del vehiculo");
+let modelo = prompt("ingresa el modelo del vehiculo");
+let valor = prompt("ingresa el valor de venta de tu vehiculo");
+
 
 let anioactual = 2022;
 let antiguedad = anioactual - anio; 
@@ -36,21 +30,24 @@ switch (ncobertura) {
         console.log("opcion no valida");
         break;
 }
+function cotizar (num1, num2) {
+    return num1 * num2;
+}
 if (ncobertura == 1) {
     cobertura = "Contra Terceros";
     if (municipalizado == true) {
-        cotizacion = valor * 0.005;
+        cotizacion = cotizar (valor, 0.005);
     } else {
-        cotizacion = valor * 0.008;
+        cotizacion = cotizar (valor, 0.008);
     }
 
 }
 if (ncobertura == 2) {
     cobertura = "Contra Todo Riesgo";
     if (municipalizado == true) {
-        cotizacion = valor * 0.009;
+        cotizacion = cotizar (valor, 0.009);
     } else {
-        cotizacion = valor * 0.014;
+        cotizacion = cotizar (valor, 0.014);
     }
 }
 
